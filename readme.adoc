@@ -1,0 +1,74 @@
+
+
+:gitplant: http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/DBuret/journal/master/
+
+= Cherx Receipts Project
+
+== Topology
+
+The system will be deployed on AWS using Github actions for automated deployment
+
+image::out\architectural\topology\topology.png[]
+
+=== GitHub Components
+
+==== link:https://github.com/chexr-receipt-project/receipts[Source code]
+
+It's our Application source code. Refer to the link above for more details
+
+==== link:https://github.com/features/actions[GitHub Actions]
+
+Continuous integration and deployment tooling from Github. 
+
+It has a free tier with above 2000 minutes of pipelines.
+
+About link:https://github.com/pricing[cost]
+
+=== AWS Components
+
+==== link:https://aws.amazon.com/lambda/[AWS Lambda]
+
+AWS Lambda will be our code runtime: we do not need to operate servers and and keep then updated. It also auto-scales if needs more CPU and memory, reducing our operational costs in the long term.
+
+link:https://aws.amazon.com/lambda/pricing/?nc1=h_ls[Costs]: it has a free tier that will be sufficient in development time (and even Production at the begining)
+
+==== link:https://aws.amazon.com/rds/[Amazon RDS]
+
+AWS RDS is the relational database service managed by AWS. All data we produce or receive will be stored in this database.
+
+link:https://aws.amazon.com/rds/free/[Cost]: it also have free tier that suits our development needs.
+
+==== link:https://aws.amazon.com/api-gateway/[AWS API Gateway]
+
+API Gateway controls the boundary of the platform: it controls the API documentation, the routes between the internet and internal services, throughput, versions and security. Retailers and Banks will access our system through this service.
+
+link:https://aws.amazon.com/api-gateway/pricing/[Cost]: it has a free tier that suits our development needs.
+
+==== link:https://aws.amazon.com/cognito/[Cognito]
+
+Cognito is the user directory of the platform. Retailers and banks will be stored and have it's access control managed by this service.
+
+link:https://aws.amazon.com/cognito/pricing/[Cost]: it has a free tier that suits our development needs.
+
+== Use Cases
+
+=== Purchase
+
+image:out\architectural\general_idea\Purchase Flow.png[]
+
+== Questions about the flow
+
+. On `2` the merchant will only have a reply after message `6`? In other words, _Cherx Receipt_ will hold the request while waiting for the receipt from bank?
+
+.. If this is true, what happens if the payment is declined or cancelled? How 
+.. If this is *not* true, will this receipt be cancelled in the future?
+
+Note: I imagine the bank will send a payment declined for _Chers_receipt_ so we can handle this case. But we need to be prepared to not receive any communication from the bank about this receipt due a failure.
+
+=== Retailer subscription
+
+TO DO
+
+=== Bank subscription
+
+TO DO

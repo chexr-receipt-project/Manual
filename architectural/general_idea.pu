@@ -1,0 +1,32 @@
+@startuml
+Title Purchase Flow
+actor Customer
+participant Merchant
+boundary Cherx_receipt
+participant PSP
+participant Bank
+
+
+Customer -> Merchant : 1. do purchase
+activate Merchant
+Merchant -> Cherx_receipt : 2. receipt info
+activate Cherx_receipt
+
+Merchant -> PSP: 3. Payment clearing
+activate PSP
+PSP -> Bank: 4. Digital Receipt
+activate Bank
+Bank -> Cherx_receipt: 5. Cleared card transaction
+activate Cherx_receipt
+deactivate Cherx_receipt
+deactivate Bank
+deactivate PSP
+Cherx_receipt -> Merchant: 6. Receipt stored
+
+deactivate Cherx_receipt
+Merchant -> Customer: 7. Payment process completed
+deactivate Merchant
+
+
+
+@enduml

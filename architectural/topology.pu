@@ -1,0 +1,33 @@
+@startuml topology
+left to right direction
+actor Retailer
+actor Bank
+actor Developer
+
+cloud AWS {
+    database "Amazon RDS" as db
+    component "API Gateway" as api
+    component Cognito as auth
+    node "AWS Lambda" as code {
+        stack "python code" as runtime
+    }
+    
+    api -> auth
+    api -> code
+    runtime -> db
+    Retailer -> api
+    Bank <-> api
+    Retailer <-> Bank
+
+}
+
+cloud Github {
+
+    file "source code" as source
+    component "GitHub Actions" as ci
+    source -> ci : automated tests
+    ci -> runtime : automated deployment
+    Developer -> source
+}
+
+@enduml
