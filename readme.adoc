@@ -65,6 +65,17 @@ image:out\architectural\general_idea\Purchase Flow.png[]
 
 Note: I imagine the bank will send a payment declined for _Chers_receipt_ so we can handle this case. But we need to be prepared to not receive any communication from the bank about this receipt due a failure.
 
+**Answer**: 
+
+  The receipt will only be issued when the payment have been gone through. The merchan'ts API should only be triggered when the payment is done.
+
+  Now if the payment is refunded, there should be a button on the bank's app where they can trigger a refund and it will go through the chexr software and then back to the merchant. I think the link i sent you has in the Bank API the refund option, maybe you can check it.
+
+  I have a question on point no. 4, the PSP will not issue the digital receipt
+
+
+  PSP is only the processing payment channel but there will be no relationship between the merchant, the customer, the bank and Chexr. the receipt must come out of the merchant directly to chexr.
+
 === Retailer subscription
 
 TO DO
