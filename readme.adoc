@@ -50,9 +50,9 @@ Cognito is the user directory of the platform. Retailers and banks will be store
 
 link:https://aws.amazon.com/cognito/pricing/[Cost]: it has a free tier that suits our development needs.
 
-== Use Cases
 
-=== Purchase
+
+== Purchase Flow
 
 image:out\architectural\general_idea\Purchase Flow.png[]
 
@@ -76,10 +76,24 @@ Note: I imagine the bank will send a payment declined for _Chers_receipt_ so we 
 
   PSP is only the processing payment channel but there will be no relationship between the merchant, the customer, the bank and Chexr. the receipt must come out of the merchant directly to chexr.
 
-=== Retailer subscription
+== Use Cases
+
+=== Merchant Subscription
 
 TO DO
 
-=== Bank subscription
+=== Bank Subscription
 
 TO DO
+
+=== Purchase
+
+=== Item Returned
+
+=== Purchase Cancelled
+
+* In the store
+* In the bank
+
+
+
