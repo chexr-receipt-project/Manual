@@ -1,0 +1,21 @@
+@startuml
+
+title UC1. Customer Enrollment
+actor Bank
+boundary Cherx_receipt
+database database
+
+Bank -> Cherx_receipt : send customers
+note left
+can send multiple 
+customers 
+at the same time
+end note
+activate Cherx_receipt
+Cherx_receipt -> database: store customer data
+Cherx_receipt --> Bank: customers enrolled
+
+deactivate
+
+
+@enduml

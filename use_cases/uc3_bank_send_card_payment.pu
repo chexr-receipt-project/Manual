@@ -1,0 +1,20 @@
+@startuml
+
+title UC3. Bank Send Card Payment
+
+participant Bank
+boundary Cherx_receipt
+database payments
+queue matching_queue 
+
+Bank -> Cherx_receipt: send (multiple) payment clearing
+activate Cherx_receipt
+    Cherx_receipt -> Cherx_receipt: validate data
+    Cherx_receipt -> payments: store each payment
+    Cherx_receipt -> matching_queue: send payment to matching queue
+    Cherx_receipt --> Bank: payments stored
+
+
+deactivate Cherx_receipt
+
+@enduml

@@ -1,7 +1,4 @@
 
-
-:gitplant: http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/DBuret/journal/master/
-
 = Cherx Receipts Project
 
 == Topology
@@ -76,24 +73,67 @@ Note: I imagine the bank will send a payment declined for _Chers_receipt_ so we 
 
   PSP is only the processing payment channel but there will be no relationship between the merchant, the customer, the bank and Chexr. the receipt must come out of the merchant directly to chexr.
 
+== Questions
+
+=== How a bank will be subscribed?
+Raphael: Will we subscribe then and register then as a Bank? Or they will auto-register with us?
+
+=== How will a merchant be registered?
+
+Raphael: they will auto-register with us?
+
+=== How will the customer be registered?
+
+The bank will enroll they automatically
+Raphael: Tryflux demands que Bank to register the customer and they must accept TOS before having tracked: https://developers.tryflux.com/#section/Getting-Started-Bank/Onboarding
+
+=== How will we uniquely identify a customer?
+
+Raphael: If they pay by cash, for example, will we have any type of unique identifier? We can use it's card as unique identifier, but the same customer can use different types of cards
+Raphael: the customer may have multiple banks. Maybe the customer must know it's unique customer id and pass it for both Merchant and Banks? If yes, we have to think in an easy-to-remmeber customer id and a security policy to validate if the customer is informing the correct id for both bank and merchant?
+Raphael: thinking about it, the Merchant doesn't need to know the customerID if the bank pass it with the cleared card transaction. But this is only valid for card payments. What happens with other payment options? I took a look into Tryflux API and the Merchand *DOES NOT* send a customer ID. I think all the relationship is made from the bank transaction, which needs a card to be made.
+Raphael: maybe we should add an optional customer_email field so he can receive the receipt outside the bank?
+
+=== How the bank receipt will be matched with a Purchase?
+
+Raphael: My doubt is: we will receive the merchant transaction with some details. And the Bank will send us the cleared card transaction. How will I identify that the from what merchant transaction this cleared transaction is? Probably we have an authorization number to fill
+
+=== Will we support multiple payment options? 
+
+Raphael: Tryflux accepts this
+
+=== What payment options do we have?
+
+Raphael: Following tryflux, they have _card_, _cash_, _checque_, and _gifcard_. I think its a good idea having _other_ too.
+
+==== There is no guarantee order if Merchant Receipt will come first or before Bank Clearing, right?
+
+Raphael: I think we need to be prepared to receive Merchant Receipt First or Bank Clearing first.
+
+
+=== Will we support refunds and cancelled items at this moment?
+
+
 == Use Cases
 
-=== Merchant Subscription
+=== UC1. Customer Enrollment
 
-TO DO
+image::out\use_cases\uc1_customer_enrollment\UC1. Customer Enrollment.png[]
 
-=== Bank Subscription
+=== UC2. Merchant Send Receipt Info
 
-TO DO
+image::out\use_cases\uc2_merchant_send_receipt_info\UC2. Merchant Send Receipt Info.png[]
 
-=== Purchase
+=== UC3. Bank Send Card Payment
 
-=== Item Returned
+image::out\use_cases\uc3_bank_send_card_payment\UC3. Bank Send Card Payment.png[]
 
-=== Purchase Cancelled
+=== UC4. Match Bank Card Payment with Merchant Receipt
 
-* In the store
-* In the bank
+image::out\use_cases\uc4_match_receipt_payment\UC4. Match Bank Card Payment with Merchant Receipt.png[]
 
+=== UC5. Bank Receives Receipts
+
+image::out\use_cases\uc5_bank_receives_receipts\UC5. Bank Receives Receipts.png[]
 
 

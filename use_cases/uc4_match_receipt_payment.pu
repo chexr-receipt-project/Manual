@@ -1,0 +1,26 @@
+@startuml
+
+title UC4. Match Bank Card Payment with Merchant Receipt
+
+queue matching_queue 
+boundary Cherx_receipt
+database receipts
+database payments
+queue matched_queue
+
+matching_queue -> Cherx_receipt: new payment or receipt
+activate Cherx_receipt
+    Cherx_receipt -> payments: find payments
+    Cherx_receipt -> receipts: find receipt
+
+    alt found payment and receipt
+        Cherx_receipt -> receipts: store payment info on receipt
+        alt all payments found
+            Cherx_receipt -> matched_queue: send completed receipt to be processed by bank
+        end
+    end
+    Cherx_receipt --> matching_queue: finished    
+
+deactivate Cherx_receipt
+
+@enduml

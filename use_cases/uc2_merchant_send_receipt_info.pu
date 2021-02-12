@@ -1,0 +1,26 @@
+@startuml
+
+title UC2. Merchant Send Receipt Info
+
+actor Customer
+participant Merchant
+boundary Cherx_receipt
+database receipts
+queue matching_queue 
+
+Customer -> Merchant: do purchase
+activate Merchant
+Merchant -> Cherx_receipt: send receipt
+note right
+can send multiple receipts 
+at the same time?
+end note
+activate Cherx_receipt
+Cherx_receipt -> Cherx_receipt: validate receipt
+Cherx_receipt -> receipts: store receipt
+Cherx_receipt -> matching_queue: send receipt to matching queue
+Cherx_receipt --> Merchant: receipt stored
+deactivate Cherx_receipt
+Merchant --> Customer: confirm purchase
+deactivate Merchant
+@enduml

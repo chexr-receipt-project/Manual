@@ -1,0 +1,17 @@
+@startuml
+
+title UC5. Bank Receives Receipts
+
+queue matched_queue
+boundary Cherx_receipt
+database Receipts
+Actor Bank
+
+matched_queue -> Cherx_receipt: new completed receipt
+activate Cherx_receipt
+    Cherx_receipt -> Receipts: get receipt
+    Cherx_receipt -> Bank: upload receipt
+    Cherx_receipt --> matched_queue: finished
+deactivate Cherx_receipt
+
+@enduml
