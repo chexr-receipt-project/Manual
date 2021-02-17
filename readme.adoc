@@ -198,6 +198,9 @@ Yes we will support refunds and cancelled items. This I think should be initiate
 
 *Raphael*: Abdulrahman will check this
 
+*Abdulrahman*
+
+It will start with the Merchant. We need to check how tryflux do it.
 
 == Use Cases
 
@@ -223,4 +226,15 @@ image::out\use_cases\uc4_match_receipt_payment\UC4. Match Bank Card Payment with
 
 image::out\use_cases\uc5_bank_receives_receipts\UC5. Bank Receives Receipts.png[]
 
+
+=== UC6. Customer wants to make a exchange or cancel the purchase
+
+TO DO
+- They exchange can generate a refund or a new payment
+
+
+=== UC7. Bank cancells the payment
+
+TO DO 
+- Should we manage this scenario?
 
