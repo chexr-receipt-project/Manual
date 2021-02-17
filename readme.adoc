@@ -76,42 +76,127 @@ Note: I imagine the bank will send a payment declined for _Chers_receipt_ so we 
 == Questions
 
 === How a bank will be subscribed?
-Raphael: Will we subscribe then and register then as a Bank? Or they will auto-register with us?
+*Raphael*
+
+ Will we subscribe then and register then as a Bank? Or they will auto-register with us?
+
+*Abdulrahman*
+ 
+ 1 -	In the beginning and during the initial stages we will ask the Banks to enroll with Chexr and assist Chexr by providing the Merchants details so Chexr can sign them up. 
+
+ 2 -	If the Banks refuse to provide the Merchants details, then Chexr will need to enroll the Merchants and the Banks together.
+
+ 3 -	In the future after Chexr is live with the software the second phase will be by developing an app and through the app Customers can enroll directly with Chexr through an app and then automatically the Banks and Merchants will be registered.  
+
 
 === How will a merchant be registered?
 
-Raphael: they will auto-register with us?
+*Raphael*
+
+ they will auto-register with us?
+
+*Abdulrahman*
+
+ Same as above.
+
+ 1-	In the beginning the Banks will auto-register with us. Once the Bank enrolls with us, the Merchants details will be provided to Chexr and then the Merchants will be automatically registered with Chexr. Chexr will need to provide them with the necessary APIs so it can be automatically registered.
+
+ 2-	If the Banks refuse to provide the Merchants details, then Chexr will need to enroll the Merchants and the Banks together and register them.
+
+ 3-	In the future after Chexr is live with the software the second phase will be by developing an app and through the app Customers can enroll directly with Chexr through an app and then automatically the Banks and Merchants will be registered.  
+
+*Raphael*
+
+ email with credentials
+
 
 === How will the customer be registered?
 
 The bank will enroll they automatically
-Raphael: Tryflux demands que Bank to register the customer and they must accept TOS before having tracked: https://developers.tryflux.com/#section/Getting-Started-Bank/Onboarding
+
+*Raphael*
+
+ Tryflux demands que Bank to register the customer and they must accept TOS before having tracked: https://developers.tryflux.com/#section/Getting-Started-Bank/Onboarding
+
+*Abdulrahman*
+
+ If the Banks will enroll merchants for this then Banks will need to update their Terms and Conditions to allow them to use Customers information. I don’t want to have a direct access to Customers as this will need a lot of work. What do you think?
+
+*Raphael*
+ 
+  the client unique identifier will be sent from the bank in a transaction
+
 
 === How will we uniquely identify a customer?
 
-Raphael: If they pay by cash, for example, will we have any type of unique identifier? We can use it's card as unique identifier, but the same customer can use different types of cards
-Raphael: the customer may have multiple banks. Maybe the customer must know it's unique customer id and pass it for both Merchant and Banks? If yes, we have to think in an easy-to-remmeber customer id and a security policy to validate if the customer is informing the correct id for both bank and merchant?
-Raphael: thinking about it, the Merchant doesn't need to know the customerID if the bank pass it with the cleared card transaction. But this is only valid for card payments. What happens with other payment options? I took a look into Tryflux API and the Merchand *DOES NOT* send a customer ID. I think all the relationship is made from the bank transaction, which needs a card to be made.
-Raphael: maybe we should add an optional customer_email field so he can receive the receipt outside the bank?
+*Raphael* 
+ 
+ If they pay by cash, for example, will we have any type of unique identifier? We can use it's card as unique identifier, but the same customer can use different types of cards
+
+ the customer may have multiple banks. Maybe the customer must know it's unique customer id and pass it for both Merchant and Banks? If yes, we have to think in an easy-to-remmeber customer id and a security policy to validate if the customer is informing the correct id for both bank and merchant?
+
+ thinking about it, the Merchant doesn't need to know the customerID if the bank pass it with the cleared card transaction. But this is only valid for card payments. What happens with other payment options? I took a look into Tryflux API and the Merchand *DOES NOT* send a customer ID. I think all the relationship is made from the bank transaction, which needs a card to be made.
+
+ maybe we should add an optional customer_email field so he can receive the receipt outside the bank?
+
+*Abdulrahman*
+
+ We will discuss this more but what I think we should focus on is the customer unique number, this can be used for the loyalty program we will develop in the future. The receipt will be kept in customers banking app for the bank where he will transact so I don’t think there will be an issue here. Lets discuss this in detail. 
+
+*Raphael*
+
+Focus on card at this moment
 
 === How the bank receipt will be matched with a Purchase?
 
-Raphael: My doubt is: we will receive the merchant transaction with some details. And the Bank will send us the cleared card transaction. How will I identify that the from what merchant transaction this cleared transaction is? Probably we have an authorization number to fill
+*Raphael*
+ 
+ My doubt is: we will receive the merchant transaction with some details. And the Bank will send us the cleared card transaction. How will I identify that the from what merchant transaction this cleared transaction is? Probably we have an authorization number to fill
+
+ *Abdulrahman*
+
+  There should be a transaction number where the it will match the payment from the receipt and the release of the amount from the bank. 
 
 === Will we support multiple payment options? 
 
-Raphael: Tryflux accepts this
+*Raphael*
+ 
+ Tryflux accepts this
+
+*Abdulrahman*
+
+Focus on card for now
 
 === What payment options do we have?
 
-Raphael: Following tryflux, they have _card_, _cash_, _checque_, and _gifcard_. I think its a good idea having _other_ too.
+*Raphael*
+ 
+ Following tryflux, they have _card_, _cash_, _checque_, and _gifcard_. I think its a good idea having _other_ too.
+
+*Abdulrahman*
+
+ Yes I agree, we should have more if its possible within the same software.
+
+*Raphael*
+
+let’s focus on Card for now
 
 ==== There is no guarantee order if Merchant Receipt will come first or before Bank Clearing, right?
 
-Raphael: I think we need to be prepared to receive Merchant Receipt First or Bank Clearing first.
+*Raphael*
+ I think we need to be prepared to receive Merchant Receipt First or Bank Clearing first.
 
+*Abdulrahman*
+
+ I think the merchant receipt and the bank clearing will happen at the same time. If they don’t happen on the same time then we need to have the Bank clearing then we issue the receipt to the customer to his banking app. How long this process will take you think?
 
 === Will we support refunds and cancelled items at this moment?
+
+*Abdulrahman*
+
+Yes we will support refunds and cancelled items. This I think should be initiated from the Banking app. 
+
+*Raphael*: Abdulrahman will check this
 
 
 == Use Cases
