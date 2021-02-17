@@ -201,7 +201,9 @@ Yes we will support refunds and cancelled items. This I think should be initiate
 
 == Use Cases
 
-=== UC1. Customer Enrollment
+=== UC1. Customer Enrollment (Cancelled)
+
+NOTE: This UC is cancelled. The bank will not send customer data and we will only have _customer id_ when receive a clearing payment.
 
 image::out\use_cases\uc1_customer_enrollment\UC1. Customer Enrollment.png[]
 
