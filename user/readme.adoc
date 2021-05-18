@@ -132,7 +132,13 @@ To list all merchants, change from `PUT` to `GET` and the system will return the
 
 == Merchant API and Bank API
 
-Please refer to the Swagger documentation (TO DO)
+Please refer to the OpenAPI documentation:
+
+https://api.chexr.com/openapi.json
+
+(you have to be authenticated to download this file)
+
+Use an OpenAPI viewer to load the file (eg. https://editor.swagger.io/)
 
 
 [appendix]
