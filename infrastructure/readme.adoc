@@ -1,5 +1,11 @@
 # Chexr Receipts Infrastructure
 
+All infrastructure the project needs is deployed and mantained using link:https://www.terraform.io/[Terraform]. 
+
+link:https://github.com/chexr-receipt-project/infra[Chexr Terraform Source code]
+
+Please refer to source code to know how to deploy and configure the application.
+
 * terraform
 * custom domains for API and authorization (manual operation)
 
