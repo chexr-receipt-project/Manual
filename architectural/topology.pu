@@ -5,8 +5,8 @@ actor Bank
 actor Developer
 
 cloud AWS {
-    database "Amazon RDS" as db
-    component "API Gateway" as api
+    database "AWS DocumentDB" as db
+    component "AWS API Gateway" as api
     component Cognito as auth
     node "AWS Lambda" as code {
         stack "python code" as runtime

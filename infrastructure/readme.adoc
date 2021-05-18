@@ -1,0 +1,22 @@
+# Chexr Receipts Infrastructure
+
+All infrastructure the project needs is deployed and mantained using link:https://www.terraform.io/[Terraform]. 
+
+link:https://github.com/chexr-receipt-project/infra[Chexr Terraform Source code]
+
+Please refer to source code to know how to deploy and configure the application.
+
+* terraform
+* custom domains for API and authorization (manual operation)
+
+** For authorization (eg. auth.chexr.com) (not managed by terraform)
+*** Create (and validate) certificate here: https://us-east-1.console.aws.amazon.com/acm/home
+*** Set on user pool the correct domain 
+*** Set on route53 the correct `CNAME` alias to the user pool (defined at the bottom of the screen - see dns_cname_custom_domain.png)
+** For API
+*** Create (and validate) certificate here: https://us-east-1.console.aws.amazon.com/acm/home
+*** On API Gateway service, go to `Custom domain names` (usually the second link)
+*** Follow this tutorial: https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-edge-optimized-custom-domain-name.html
+
+* VM to access document DB
+* Deployment and configuration of pipeline
