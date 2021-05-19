@@ -115,18 +115,22 @@ image:cognito_set_bank.png[]
 +
     {
         "client_id": "55h6113j84knf3asoh43qeauAAA",
-        "name": "Raphael",
+        "bank_name": "Wells Fargo",
+        "url_upload_receipts": "https://api.wellsfargo.com/chexr/receipts",
+        "jws_signature":""
     }
 +
-Where `client_id` is the client identifier generated before. If you need to update a merchant, just do the same, but include it's ID:
+Where `client_id` is the client identifier generated before. If you need to update a bank, just do the same, but include it's ID:
 
     {
         "client_id": "55h6113j84knf3asoh43qeauAAA",
-        "name": "Raphael",
-        "id": "6098122bde5de3ba93842f81"
+        "id": "6098122bde5de3ba93842f81",
+        "bank_name": "Wells Fargo",
+        "url_upload_receipts": "https://api.wellsfargo.com/chexr/receipts",
+        "jws_signature":""
     }
 
-To list all merchants, change from `PUT` to `GET` and the system will return the list of merchants.
+To list all banks, change from `PUT` to `GET` and the system will return the list of merchants.
 
 
 
