@@ -1,3 +1,0 @@
-= Developer Manual
-
-Please refer to link:https://github.com/chexr-receipt-project/receipts[project source code]

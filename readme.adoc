@@ -3,6 +3,6 @@
 This documentation has the following documents:
 
 * link:architectural\readme.adoc[Architecture and Requirements Docs]
-* link:development\readme.adoc[Development Docs]
-* link:infrastructure\readme.adoc[Infrastructure Docs]
+* link:https://github.com/chexr-receipt-project/receipts[Development Docs]
+* link:https://github.com/chexr-receipt-project/infra[Infrastructure Docs]
 * link:user\readme.adoc[User Docs]
