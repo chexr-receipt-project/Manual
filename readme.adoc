@@ -1,4 +1,4 @@
-# Chexr Receipts docs
+# Digital Receipts Docs
 
 This documentation has the following documents:
 
