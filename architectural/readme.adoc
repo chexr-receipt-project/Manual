@@ -1,5 +1,5 @@
 
-= Cherx Receipts Project
+= Digital Receipts Project
 
 == Topology
 
